@@ -3,7 +3,7 @@ FROM ubuntu
 RUN apt-get update
 
 # Install additional requirements
-RUN apt-get -y install wget build-essential g++ cppcheck libgtest-dev unzip shellcheck cmake lcov gcovr git libboost-all-dev
+RUN apt-get -y install wget build-essential g++ cppcheck libgtest-dev unzip shellcheck cmake lcov gcovr git libboost-all-dev librabbitmq-dev libssl-dev
 
 # Compile gtest
 RUN cd /usr/src/gtest && cmake CMakeLists.txt && make && cp *.a /usr/lib && ldconfig
