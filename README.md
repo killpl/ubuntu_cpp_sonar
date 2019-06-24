@@ -11,7 +11,7 @@
 - gcovr
 - git
 - libboost-all-dev
-- sonar-scanner (https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)
+- sonar-scanner 3.3.0.1492-linux (https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)
 
 ## Docker image 
 https://hub.docker.com/r/killpl/ubuntu_cpp_sonar
