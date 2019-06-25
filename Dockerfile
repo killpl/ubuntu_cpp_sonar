@@ -8,10 +8,8 @@ RUN apt-get -y install wget build-essential g++ cppcheck libgtest-dev unzip shel
 # Compile gtest
 RUN cd /usr/src/gtest && cmake CMakeLists.txt && make && cp *.a /usr/lib && ldconfig
 
-# Install sonar-scanner
-RUN wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip &&  \
-    unzip sonar-scanner-cli-3.3.0.1492-linux.zip -d /opt/sonar && \
-    chmod +x /opt/sonar/sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner
+# Create tmp dir
+RUN mkdir -p /opt/build-tmp
 
 # Download and build rabbitmq-c
 RUN cd /opt/build-tmp && \
@@ -30,3 +28,10 @@ RUN cd /opt/build-tmp && \
     cmake -DCMAKE_INSTALL_PREFIX=/usr/local .. && \
     cmake --build . --target install
 
+# Cleanup
+RUN rm -rf /opt/build-tmp
+
+# Install sonar-scanner
+RUN wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip &&  \
+    unzip sonar-scanner-cli-3.3.0.1492-linux.zip -d /opt/sonar && \
+    chmod +x /opt/sonar/sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner
