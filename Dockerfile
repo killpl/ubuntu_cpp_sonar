@@ -24,6 +24,7 @@ RUN cd /opt/build-tmp && \
 RUN cd /opt/build-tmp && \
     git clone https://github.com/alanxz/SimpleAmqpClient.git && \
     cd SimpleAmqpClient && \
+    git checkout v2.4.0 && \
     mkdir build && cd build && \
     cmake -DCMAKE_INSTALL_PREFIX=/usr/local .. && \
     cmake --build . --target install
