@@ -15,7 +15,7 @@ RUN mkdir -p /opt/build-tmp
 RUN cd /opt/build-tmp && \
     git clone https://github.com/alanxz/rabbitmq-c.git && \
     cd rabbitmq-c && \
-    git checkout v0.5.1 && \
+    git checkout v0.9.1 && \
     mkdir build && cd build && \
     cmake -DCMAKE_INSTALL_PREFIX=/usr/local .. && \
     cmake --build . --target install
