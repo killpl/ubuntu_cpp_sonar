@@ -20,12 +20,12 @@ RUN cd /opt/build-tmp && \
     cmake --build . --target install
 
 # Download and build SimpleAmpqClient
-#RUN cd /opt/build-tmp && \
-#    git clone https://github.com/alanxz/SimpleAmqpClient.git && \
-#    cd SimpleAmqpClient && \
-#    mkdir build && cd build && \
-#    cmake -DCMAKE_INSTALL_PREFIX=/usr/local .. && \
-#    cmake --build . --target install
+RUN cd /opt/build-tmp && \
+    git clone https://github.com/killpl/SimpleAmqpClient.git && \
+    cd SimpleAmqpClient && \
+    mkdir build && cd build && \
+    cmake -DCMAKE_INSTALL_PREFIX=/usr/local .. && \
+    cmake --build . --target install
 
 # Cleanup
 RUN rm -rf /opt/build-tmp
